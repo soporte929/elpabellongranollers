@@ -12,7 +12,7 @@
 ### Visual / UX
 - [x] Filtro de alérgenos en la carta
 - [x] Buscador de plato en la carta
-- [ ] Revisar diseño responsive en móvil
+- [x] Revisar diseño responsive en móvil
 
 ### Deploy
 - [ ] Definir hosting (Nginx, Vercel, Netlify…)
