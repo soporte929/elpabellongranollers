@@ -3,6 +3,13 @@ import { createIcons, icons } from 'lucide'
 const VALID_ROUTES = ['inicio', 'carta', 'contacto'] as const
 type Route = (typeof VALID_ROUTES)[number] | '404'
 
+const PAGE_TITLES: Record<Route, string> = {
+  inicio: 'El Pabellón - Bar Restaurante en Granollers',
+  carta: 'Carta | El Pabellón Granollers',
+  contacto: 'Contacto | El Pabellón Granollers',
+  '404': 'Página no encontrada | El Pabellón Granollers',
+}
+
 const appContent = document.getElementById('app-content') as HTMLElement
 const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-link')
 const menuToggle = document.querySelector('.menu-toggle') as HTMLButtonElement
@@ -63,6 +70,7 @@ export async function navigateTo(raw: string, pushState = true) {
   }
 
   currentRoute = route
+  document.title = PAGE_TITLES[route]
   window.scrollTo(0, 0)
   appContent.classList.remove('fade-out')
 

@@ -38,6 +38,11 @@
   align-items: center;
 }
 
+.logo-image {
+  height: 50px;
+  filter: brightness(0);
+}
+
 .logo-text {
   font-weight: 800;
   font-size: 1.25rem;
