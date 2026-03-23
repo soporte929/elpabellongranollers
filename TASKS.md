@@ -6,13 +6,13 @@
 ## Pendiente
 
 ### Contenido
-- [ ] Revisar alérgenos sin registrar (allergens: undefined) en menu-data.ts
+- [ ] Añadir foto real del local en sección "sobre nosotros" (pendiente foto)
 - [ ] Añadir imágenes de platos (campo `image` en MenuItem está preparado)
 
 ### Visual / UX
+- [ ] Filtro de alérgenos en la carta
+- [ ] Buscador de plato en la carta
 - [ ] Revisar diseño responsive en móvil
-- [ ] Revisar página de inicio (home)
-- [ ] Revisar página de contacto (dirección, teléfono, mapa)
 
 ### Deploy
 - [ ] Definir hosting (Nginx, Vercel, Netlify…)
@@ -28,3 +28,9 @@
 - [x] SEO con Schema.org JSON-LD
 - [x] Página 404
 - [x] Datos del menú completos (bocadillos, tapas, platos, bebidas)
+- [x] Alérgenos registrados en toda la carta (desde tabla oficial)
+- [x] Horario (Lu-Do 7:00-23:00) en contacto y Schema.org
+- [x] Favicon con logo.png
+- [x] og:url y og:image con URL absoluta (elpabellongranollers.com)
+- [x] Títulos de pestaña dinámicos por ruta
+- [x] Inline style del logo movido a clase CSS
