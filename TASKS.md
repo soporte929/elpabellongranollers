@@ -10,7 +10,7 @@
 - [ ] Añadir imágenes de platos (campo `image` en MenuItem está preparado)
 
 ### Visual / UX
-- [ ] Filtro de alérgenos en la carta
+- [x] Filtro de alérgenos en la carta
 - [ ] Buscador de plato en la carta
 - [ ] Revisar diseño responsive en móvil
 
