@@ -2,6 +2,7 @@
    Media Queries (Mobile First)
    ==================================== */
 @media (max-width: 768px) {
+  /* Nav */
   .nav-container {
     padding: 0 1rem;
   }
@@ -41,15 +42,7 @@
     font-size: 1.1rem;
   }
 
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .about-text {
-    text-align: center;
-  }
-
+  /* Hero */
   .hero {
     min-height: 60vh;
     padding: 6rem 1.25rem 4rem;
@@ -74,9 +67,54 @@
     justify-content: center;
   }
 
+  /* About */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .about-image-card {
+    display: none;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  /* Highlights */
   .highlights {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2rem;
+  }
+
+  /* Carta */
+  .allergen-filter {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0.75rem 1rem;
+    gap: 0.4rem;
+  }
+
+  .allergen-filter::-webkit-scrollbar {
+    display: none;
+  }
+
+  .allergen-filter-label {
+    flex-shrink: 0;
+  }
+
+  .allergen-btn {
+    flex-shrink: 0;
+  }
+
+  .menu-list-item {
+    padding: 0.85rem 1rem;
   }
 }
 
