@@ -11,7 +11,7 @@
 
 ### Visual / UX
 - [x] Filtro de alérgenos en la carta
-- [ ] Buscador de plato en la carta
+- [x] Buscador de plato en la carta
 - [ ] Revisar diseño responsive en móvil
 
 ### Deploy
