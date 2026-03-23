@@ -1,0 +1,71 @@
+:root {
+  /* Brand Colors */
+  --color-primary: #004aad;
+  --color-secondary: #ffffff;
+  --color-contrast: #000000;
+  --color-bg-light: #f8f9fa;
+  --color-text-dark: #333333;
+  --color-text-muted: #666666;
+  --color-border: #e2e8f0;
+
+  /* Typography */
+  --font-family: 'Inter', sans-serif;
+
+  /* Layout */
+  --nav-height: 80px;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-secondary);
+  color: var(--color-text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding-top: var(--nav-height);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#app-content {
+  flex: 1;
+  opacity: 1;
+  transition: opacity var(--transition-speed) ease;
+}
+
+#app-content.fade-out {
+  opacity: 0;
+}
+
+/* Shared layout utilities */
+.section-container {
+  padding: 3rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-title {
+  color: var(--color-primary);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.text-center {
+  text-align: center;
+}

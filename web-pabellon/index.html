@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta -->
+    <title>El Pabellón - Bar Restaurante en Granollers</title>
+    <meta
+      name="description"
+      content="Bar Restaurante El Pabellón en Granollers. Tapas caseras, bocadillos de autor, platos combinados y paellas. Av. Francesc Macià, 137. Tel: 931 409 464."
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="restaurant" />
+    <meta property="og:title" content="El Pabellón - Bar Restaurante en Granollers" />
+    <meta
+      property="og:description"
+      content="Tapas caseras, bocadillos de autor y platos tradicionales mediterráneos en el corazón de Granollers."
+    />
+    <meta property="og:image" content="/logo.png" />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "El Pabellón Bar Restaurante",
+        "image": "/logo.png",
+        "telephone": "+34931409464",
+        "servesCuisine": ["Mediterranean", "Spanish"],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. Francesc Macià, 137",
+          "addressLocality": "Granollers",
+          "addressRegion": "Barcelona",
+          "postalCode": "08401",
+          "addressCountry": "ES"
+        },
+        "sameAs": ["https://instagram.com/elpabellongranollers"]
+      }
+    </script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="nav-container">
+        <div class="logo-wrapper">
+          <a href="/" class="logo" data-route="inicio">
+            <img
+              src="/logo.png"
+              alt="El Pabellón"
+              class="logo-image"
+              style="height: 50px; filter: brightness(0);"
+            />
+          </a>
+        </div>
+        <button class="menu-toggle" aria-label="Abrir menú">
+          <span class="hamburger"></span>
+        </button>
+        <nav class="nav-links" aria-label="Navegación principal">
+          <a href="/" class="nav-link active" data-route="inicio">Inicio</a>
+          <a href="/carta" class="nav-link" data-route="carta">Carta</a>
+          <a href="/contacto" class="nav-link" data-route="contacto">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="app-content">
+      <!-- Vistas cargadas dinámicamente aquí -->
+    </main>
+
+    <footer class="footer">
+      <p>&copy; El Pabellón Granollers</p>
+    </footer>
+
+    <!-- Plantillas de las páginas -->
+    <template id="tpl-inicio">
+      <section class="hero" role="banner">
+        <div class="hero-content">
+          <p class="hero-eyebrow">Tapas &middot; Bocadillos &middot; Paellas</p>
+          <h1 class="hero-heading">Cocina de verdad,<br>en Granollers</h1>
+          <p class="tagline">
+            Producto fresco, recetas de siempre y el trato de toda la vida.
+          </p>
+          <div class="hero-actions">
+            <button class="cta-button" data-route="carta">Ver la carta &rarr;</button>
+            <a href="tel:931409464" class="cta-button cta-button--ghost">
+              <i data-lucide="phone"></i> Llámanos
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="about section-container">
+        <div class="about-grid">
+          <div class="about-text">
+            <h2 class="section-title">El Pabellón, tu sitio en Granollers</h2>
+            <p>
+              Desde el desayuno hasta el tapeo de la tarde, en El Pabellón encontrarás
+              <strong>tapas caseras</strong>, <strong>bocadillos calientes</strong>,
+              platos combinados y <strong>paellas por encargo</strong> hechas con
+              ingredientes frescos y mucho cariño. Un espacio donde la cocina
+              mediterránea y el trato cercano van de la mano.
+            </p>
+          </div>
+          <div class="about-image-card">
+            <div class="about-image-placeholder">
+              <span><i data-lucide="utensils"></i> Cocina con Corazón</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="highlights-section">
+        <div class="highlights">
+          <div class="highlight-item">
+            <span class="icon"><i data-lucide="chef-hat"></i></span>
+            <h3>Tapas Artesanales</h3>
+            <p>Recetas tradicionales hechas en casa con el mejor producto.</p>
+          </div>
+          <div class="highlight-item">
+            <span class="icon"><i data-lucide="users"></i></span>
+            <h3>Ambiente Familiar</h3>
+            <p>Un espacio acogedor ideal para compartir momentos únicos.</p>
+          </div>
+          <div class="highlight-item">
+            <span class="icon"><i data-lucide="award"></i></span>
+            <h3>Calidad Local</h3>
+            <p>Comprometidos con el sabor auténtico de Granollers.</p>
+          </div>
+        </div>
+      </section>
+    </template>
+
+    <template id="tpl-carta">
+      <section class="menu section-container">
+        <div class="menu-header">
+          <h1 class="page-title">Nuestra Carta</h1>
+          <p class="menu-note">
+            Suplemento terraza +0,10€ &middot; Recipiente plástico para llevar
+            1€
+          </p>
+        </div>
+
+        <div class="accordion" id="menu-accordion">
+          <!-- Accordion content injected by JS -->
+        </div>
+      </section>
+    </template>
+
+    <template id="tpl-contacto">
+      <section class="contact section-container">
+        <h1 class="page-title text-center">¿Dónde estamos?</h1>
+
+        <div class="contact-cards">
+          <a href="tel:931409464" class="contact-card">
+            <span class="contact-icon"><i data-lucide="phone"></i></span>
+            <div class="contact-info">
+              <h3>Teléfono</h3>
+              <p>931 409 464</p>
+            </div>
+          </a>
+
+          <a
+            href="https://maps.google.com/?q=Av.+Francesc+Macià,+137,+Granollers"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card"
+          >
+            <span class="contact-icon"><i data-lucide="map-pin"></i></span>
+            <div class="contact-info">
+              <h3>Dirección</h3>
+              <p>Av. Francesc Macià, 137, Granollers</p>
+            </div>
+          </a>
+
+          <a
+            href="https://instagram.com/elpabellongranollers"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card"
+          >
+            <span class="contact-icon"><i data-lucide="instagram"></i></span>
+            <div class="contact-info">
+              <h3>Instagram</h3>
+              <p>@elpabellongranollers</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2983.8340078736173!2d2.2854388764039864!3d41.611110071275984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4c7e8a3a0e7f7%3A0x6bba41a7dc1ff098!2sAv.%20Francesc%20Maci%C3%A0%2C%20137%2C%2008401%20Granollers%2C%20Barcelona!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación de El Pabellón en Google Maps"
+          >
+          </iframe>
+        </div>
+      </section>
+    </template>
+
+    <template id="tpl-404">
+      <section class="section-container text-center" style="padding-top: 6rem;">
+        <p class="page-title" style="font-size: 5rem; margin-bottom: 1rem;">404</p>
+        <h1 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-text-dark);">
+          Página no encontrada
+        </h1>
+        <p style="color: var(--color-text-muted); margin-bottom: 2rem;">
+          El enlace que buscas no existe.
+        </p>
+        <button class="cta-button" data-route="inicio">Volver al inicio</button>
+      </section>
+    </template>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

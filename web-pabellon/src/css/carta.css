@@ -1,0 +1,109 @@
+/* ====================================
+   Página: CARTA
+   ==================================== */
+.menu-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.menu-note {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.accordion-item {
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-header {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.accordion-icon {
+  margin-right: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.accordion-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.accordion-title {
+  flex: 1;
+}
+
+.accordion-chevron {
+  display: flex;
+  align-items: center;
+  transition: transform var(--transition-speed);
+}
+
+.accordion-chevron svg {
+  width: 20px;
+  height: 20px;
+}
+
+.accordion-item.open .accordion-chevron {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  background-color: var(--color-secondary);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-speed) ease-out;
+}
+
+.accordion-item.open .accordion-content {
+  max-height: 2000px;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.menu-list-item:last-child {
+  border-bottom: none;
+}
+
+.dish-name {
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.dish-desc {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+  font-weight: 400;
+}
+
+.dish-price {
+  font-weight: 700;
+  color: var(--color-primary);
+  white-space: nowrap;
+  margin-left: 1rem;
+}
