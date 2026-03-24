@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd web-pabellon && npm run build",
+  "outputDirectory": "web-pabellon/dist",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
