@@ -15,8 +15,11 @@
 - [x] Revisar diseño responsive en móvil
 
 ### Deploy
-- [ ] Definir hosting (Nginx, Vercel, Netlify…)
-- [ ] Configurar servidor para SPA fallback a index.html
+- [x] Definir hosting → Vercel
+- [x] Configurar servidor para SPA fallback a index.html (vercel.json)
+- [x] Subir repo a GitHub (soporte929/elpabellongranollers)
+- [x] Deploy en Vercel funcionando
+- [ ] Conectar dominio elpabellongranollers.com en Vercel + apuntar DNS
 
 ## Hecho
 - [x] Estructura SPA con router custom (history API)
