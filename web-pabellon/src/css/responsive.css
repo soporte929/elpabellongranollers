@@ -67,20 +67,6 @@
     justify-content: center;
   }
 
-  /* About */
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .about-text {
-    text-align: center;
-  }
-
-  .about-image-card {
-    display: none;
-  }
-
   .section-title {
     font-size: 1.75rem;
   }

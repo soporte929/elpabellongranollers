@@ -59,17 +59,9 @@ function buildAllergensHtml(allergens: MenuItem['allergens']): string {
 export function openModal(item: MenuItem) {
   const el = getOrCreateOverlay()
 
-  const imageHtml = item.image
-    ? `<img src="${item.image}" alt="${item.name}" class="modal-img" loading="lazy" />`
-    : `<div class="modal-image-placeholder">
-        <i data-lucide="utensils"></i>
-        <span>Imagen próximamente</span>
-       </div>`
-
   el.innerHTML = `
     <div class="modal" role="document">
       <button class="modal-close" aria-label="Cerrar">&times;</button>
-      <div class="modal-image">${imageHtml}</div>
       <div class="modal-body">
         <div class="modal-header-info">
           <h2 class="modal-title">${item.name}</h2>
