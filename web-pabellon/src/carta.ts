@@ -229,8 +229,17 @@ export function renderCartaAccordion(container: HTMLElement) {
       item.classList.toggle('open')
 
       if (isOpening) {
-        const top = item.getBoundingClientRect().top + window.scrollY - navHeight
-        window.scrollTo({ top, behavior: 'smooth' })
+        // Esperar a que termine la animación de colapso/apertura: si había otra
+        // categoría abierta arriba, al cerrarse cambia la posición de esta, así
+        // que medimos el destino con el layout ya estable. Descontamos navbar +
+        // alto del bloque fijo para que el header no quede tapado.
+        const transMs =
+          (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--transition-speed')) || 0.3) * 1000
+        window.setTimeout(() => {
+          const stickyOffset = navHeight + controls.offsetHeight + 12
+          const top = item.getBoundingClientRect().top + window.scrollY - stickyOffset
+          window.scrollTo({ top, behavior: 'smooth' })
+        }, transMs + 30)
       }
     })
   })
