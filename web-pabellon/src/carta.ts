@@ -75,7 +75,7 @@ function applyFilters(container: HTMLElement, state: FilterState) {
   })
 }
 
-function renderSearchBar(anchor: HTMLElement, state: FilterState, accordion: HTMLElement) {
+function renderSearchBar(parent: HTMLElement, state: FilterState, accordion: HTMLElement) {
   const wrapper = document.createElement('div')
   wrapper.className = 'search-bar'
 
@@ -91,10 +91,10 @@ function renderSearchBar(anchor: HTMLElement, state: FilterState, accordion: HTM
   })
 
   wrapper.appendChild(input)
-  anchor.before(wrapper)
+  parent.appendChild(wrapper)
 }
 
-function renderFilterBar(anchor: HTMLElement, state: FilterState, accordion: HTMLElement) {
+function renderFilterBar(parent: HTMLElement, state: FilterState, accordion: HTMLElement) {
   const allergens = getUsedAllergens()
 
   const bar = document.createElement('div')
@@ -102,13 +102,30 @@ function renderFilterBar(anchor: HTMLElement, state: FilterState, accordion: HTM
   bar.setAttribute('role', 'group')
   bar.setAttribute('aria-label', 'Filtrar por alérgeno')
 
-  const label = document.createElement('span')
-  label.className = 'allergen-filter-label'
-  label.textContent = 'Sin:'
-  bar.appendChild(label)
+  // Cabecera colapsable (cerrada por defecto para no robar espacio a los platos)
+  const toggle = document.createElement('button')
+  toggle.type = 'button'
+  toggle.className = 'allergen-toggle'
+  toggle.setAttribute('aria-expanded', 'false')
+  const toggleLabel = document.createElement('span')
+  toggleLabel.className = 'allergen-toggle-label'
+  toggleLabel.textContent = 'Filtrar: sin alérgenos'
+  const chevron = document.createElement('i')
+  chevron.setAttribute('data-lucide', 'chevron-down')
+  toggle.appendChild(toggleLabel)
+  toggle.appendChild(chevron)
+  toggle.addEventListener('click', () => {
+    const open = bar.classList.toggle('open')
+    toggle.setAttribute('aria-expanded', String(open))
+  })
+  bar.appendChild(toggle)
+
+  const options = document.createElement('div')
+  options.className = 'allergen-options'
 
   allergens.forEach(allergen => {
     const btn = document.createElement('button')
+    btn.type = 'button'
     btn.className = 'allergen-btn'
     btn.textContent = allergen
     btn.setAttribute('aria-pressed', 'false')
@@ -118,22 +135,25 @@ function renderFilterBar(anchor: HTMLElement, state: FilterState, accordion: HTM
         state.allergen = null
         btn.classList.remove('active')
         btn.setAttribute('aria-pressed', 'false')
+        toggleLabel.textContent = 'Filtrar: sin alérgenos'
       } else {
-        bar.querySelectorAll<HTMLButtonElement>('.allergen-btn').forEach(b => {
+        options.querySelectorAll<HTMLButtonElement>('.allergen-btn').forEach(b => {
           b.classList.remove('active')
           b.setAttribute('aria-pressed', 'false')
         })
         state.allergen = allergen
         btn.classList.add('active')
         btn.setAttribute('aria-pressed', 'true')
+        toggleLabel.textContent = `Filtrando: sin ${allergen.toLowerCase()}`
       }
       applyFilters(accordion, state)
     })
 
-    bar.appendChild(btn)
+    options.appendChild(btn)
   })
 
-  anchor.before(bar)
+  bar.appendChild(options)
+  parent.appendChild(bar)
 }
 
 export function renderCartaAccordion(container: HTMLElement) {
@@ -174,12 +194,18 @@ export function renderCartaAccordion(container: HTMLElement) {
   // Estado compartido entre buscador y filtro de alérgenos
   const state: FilterState = { allergen: null, query: '' }
 
-  // Orden de inserción inverso al orden visual deseado:
-  // renderFilterBar inserta antes del accordion → [filter][accordion]
-  // renderSearchBar inserta antes del filter bar → [search][filter][accordion]
-  renderFilterBar(container, state, container)
-  const filterBar = container.previousElementSibling as HTMLElement
-  renderSearchBar(filterBar, state, container)
+  // Controles fijos (sticky): buscador + filtro envueltos en un contenedor
+  // que se queda pegado bajo el navbar mientras la lista de platos scrollea.
+  const controls = document.createElement('div')
+  controls.className = 'carta-controls'
+  container.before(controls)
+  renderSearchBar(controls, state, container)
+  renderFilterBar(controls, state, container)
+
+  // La nota de suplementos influye al pedir: la llevamos al bloque fijo
+  // para que quede siempre visible mientras se navega la carta.
+  const note = container.closest('.menu')?.querySelector('.menu-note')
+  if (note) controls.appendChild(note)
 
   const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 80
 
