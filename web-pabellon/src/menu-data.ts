@@ -134,10 +134,10 @@ export const menuData: MenuCategory[] = [
     title: 'Ensaladas',
     icon: 'salad',
     items: [
-      { name: 'Ensalada de queso cabra', price: '9,95€', desc: 'Mezclum, queso de cabra, nueces y vinagreta', allergens: ['Lácteos', 'Mostaza'] },
-      { name: 'Ensalada de la casa', price: '10,35€', desc: 'Lechuga, tomate, atún, huevo y olivas', allergens: ['Huevos', 'Mostaza'] },
-      { name: 'Ensalada con aguacate', price: '9,85€', desc: 'Mezclum, aguacate, tomate cherry y huevo', allergens: ['Huevos', 'Mostaza'] },
-      { name: 'Ensalada mediterránea', price: '9,80€', desc: 'Tomate, pepino, cebolla, olivas y orégano', allergens: ['Mostaza', 'Sulfitos'] },
+      { name: 'Ensalada de queso cabra', price: '9,95€', desc: 'Lechuga, queso de cabra, frutos secos variados, tomate, beicon y salsa balsámica', allergens: ['Lácteos', 'Frutos de cáscara', 'Sulfitos'] },
+      { name: 'Ensalada de la casa', price: '10,35€', desc: 'Lechuga, pollo rebozado, tomate, olivas, cebolla, lombarda, zanahoria, pimientos y salsa miel mostaza', allergens: ['Gluten', 'Huevos', 'Mostaza'] },
+      { name: 'Ensalada con aguacate', price: '9,85€', desc: 'Lechuga, tomate, pollo a la plancha, olivas, aguacate, pimientos, lombarda, cebolla y salsa balsámica', allergens: ['Sulfitos'] },
+      { name: 'Ensalada mediterránea', price: '9,80€', desc: 'Lechuga, tomate, lombarda, atún, huevo duro, anchoas, olivas, cebolla y salsa balsámica', allergens: ['Pescado', 'Huevos', 'Sulfitos'] },
     ],
   },
   {
